@@ -35,7 +35,15 @@ const roomSchema = new mongoose.Schema({
       type: String,
       enum: ['police', 'money', 'bomb', 'unknown', 'empty'],
       default: 'unknown'
-    }
+    },
+    trueBoxContent: {
+      type: String,
+      enum: ['police', 'money', 'bomb', 'empty'],
+      default: 'empty'
+    },
+    lastPeekerId: { type: String, default: null },
+    peekerClaim: { type: String, default: null },
+    phase: { type: String, enum: ['waiting', 'deception', 'decision', 'resolution'], default: 'waiting' }
   },
   players: [playerSchema]
 });
